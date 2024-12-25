@@ -22,7 +22,7 @@ headers = {
 
 def getCurrenciesLatest():
     response = requests.request("GET", url, headers=headers, params=parameters)
-    #print(response.text)
+    #TODO: Check response
     return response.json()
 
 def getRate(rdict, currency):
