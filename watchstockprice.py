@@ -2,6 +2,7 @@ import requests
 import sqlite3
 from datetime import datetime
 from datetime import timezone
+from datetime import UTC
 import os
 
 fiat="EUR"
@@ -106,7 +107,7 @@ def inRates(fcur, tcur, period):
 
 def checkRatesDBY(fcur, tcur):
     #print(f"checkRatesDBY({fcur}, {tcur})")
-    now = datetime.utcnow()
+    now = datetime.now(UTC)
     daystart = datetime(now.year,now.month,now.day, tzinfo=timezone.utc)
     period1=int(daystart.timestamp())-2*24*3600
     period2=period1+24*3600-1
